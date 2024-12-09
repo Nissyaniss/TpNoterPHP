@@ -2,7 +2,6 @@
 
 class UserController
 {
-	// Fonction permettant d'ajouter une nouvelle recette
 	function inscription()
 	{
 		require_once __DIR__ . DIRECTORY_SEPARATOR . '..' .
@@ -25,39 +24,37 @@ class UserController
 
 		/** @var PDO $pdo **/
 
-		$requete = $pdo->prepare('INSERT INTO users (nom, email, password, create_time) VALUES (:nom, :email, :password, NOW())');
+		$requete = $pdo->prepare('INSERT INTO users (nom, email, password, date_inscription) VALUES (:nom, :email, :password, NOW())');
 		$requete->bindParam(':nom', $nom);
 		$requete->bindParam(':email', $email);
 		$requete->bindParam(':password', password_hash($password, PASSWORD_DEFAULT));
 
-		// exécution de la requête
 		$ajoutOk = $requete->execute();
 
 		if ($ajoutOk) {
-			// redirection vers la vue d'enregistrement effectué
-			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'User' . DIRECTORY_SEPARATOR . 'enregistrement.php');
+			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' . DIRECTORY_SEPARATOR . 'incription_reussite.php');
 		} else {
-			echo 'Erreur lors de l\'enregistrement de la recette';
+			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' . DIRECTORY_SEPARATOR . 'error_inscription.php');
 		}
 	}
 
 	function verify_connection($pdo)
 	{
-		$identifiant = $_POST['identifiant'];
-		$pwd = $_POST['pwd'];
+		$nom = $_POST['nom'];
+		$password = $_POST['password'];
 
-		$requete = $pdo->prepare('SELECT * FROM users WHERE identifiant = :identifiant');
+		$requete = $pdo->prepare('SELECT * FROM users WHERE nom = :nom');
 
-		$requete->bindParam(':identifiant', $identifiant);
+		$requete->bindParam(':nom', $nom);
 
 		$requete->execute();
 
 		$user = $requete->fetch();
 
-		if ($user && password_verify($pwd, $user['password'])) {
-			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'home.php');
+		if ($user && password_verify($password, $user['password'])) {
+			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'home.php');
 		} else {
-			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'User' . DIRECTORY_SEPARATOR . 'error.php');
+			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' . DIRECTORY_SEPARATOR . 'error_connection.php');
 		}
 	}
 }
