@@ -6,14 +6,14 @@ class UserController
 	function inscription()
 	{
 		require_once __DIR__ . DIRECTORY_SEPARATOR . '..' .
-			DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'User' .
+			DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' .
 			DIRECTORY_SEPARATOR . 'inscription.php';
 	}
 
 	function connexion()
 	{
 		require_once __DIR__ . DIRECTORY_SEPARATOR . '..' .
-			DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'User' .
+			DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' .
 			DIRECTORY_SEPARATOR . 'connexion.php';
 	}
 

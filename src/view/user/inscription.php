@@ -1,18 +1,18 @@
 <h1>Inscription</h1>
 <form action="?c=inscrire" method="post">
-	<div>
-		<label for="name">Nom</label>
-		<input type="text" name="name" id="name" required>
+	<div class="mb-3">
+		<label for="identifiant" class="form-label">Identifiant</label>
+		<input type="text" class="form-control" name="identifiant" id="identifiant" required>
 	</div>
-	<div>
-		<label for="email">Adresse email</label>
-		<input type="email" name="email" id="email" required>
+	<div class="mb-3">
+		<label for="mail" class="form-label">Adresse mail</label>
+		<input type="email" class="form-control" name="mail" id="mail" required>
 	</div>
-	<div>
-		<label for="password" class="form-label">Mot de passe</label>
-		<input type="password" name="password" id="password" required>
+	<div class="mb-3">
+		<label for="pwd" class="form-label">Mot de passe</label>
+		<input type="password" class="form-control" name="pwd" id="pwd" required>
 	</div>
-	<div>
-		<button type="submit" id="enregistrer">S'inscrire</button>
+	<div class="mb-3">
+		<button type="submit" class="btn btn-primary" id="enregistrer">Enregistrer</button>
 	</div>
 </form>
