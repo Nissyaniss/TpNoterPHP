@@ -54,7 +54,10 @@ class UserController
 		$user = $requete->fetch();
 
 		if ($user && password_verify($password, $user['password'])) {
-			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'home.php');
+			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' . DIRECTORY_SEPARATOR . 'connexion.php');
+			session_start();
+			$_SESSION['id'] = $user['utilisateur_id'];
+			$_SESSION['nom'] = $user['nom'];
 		} else {
 			require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'user' . DIRECTORY_SEPARATOR . 'error_connection.php');
 		}

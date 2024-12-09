@@ -26,9 +26,16 @@
 			<li class="nav-item">
 				<a class="btn btn-outline-dark" href="?c=connexion">Connexion</a>
 			</li>
-			<li class="nav-item">
-				<a class="btn btn-outline-dark" href="?c=post">Création de posts</a>
-			</li>
+			<?php
+			if (isset($_SESSION['utilisateur_id'])) { ?>
+				<li class="nav-item">
+					<a class="btn btn-outline-dark" href="?c=post">Création de posts</a>
+				</li>
+			<?php
+			}
+			?>
+
+
 
 		</ul>
 	</nav>

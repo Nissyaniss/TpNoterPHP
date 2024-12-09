@@ -2,6 +2,7 @@
 require_once(__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'connectDB.php');
 require_once(__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'UserController.php');
 require_once(__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'header.php');
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'PostsController.php');
 
 $route = isset($_GET['c']) ? $_GET['c'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
@@ -32,7 +33,10 @@ switch ($route) {
 		break;
 
 	case 'post':
-		require_once(__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'PostsController.php');
+		if (isset($_SESSION['utilisateur_id'])) {
+			$postController = new PostsController();
+			$postController->publier_post();
+		}
 		break;
 
 	default:
