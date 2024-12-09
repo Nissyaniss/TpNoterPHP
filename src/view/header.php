@@ -26,6 +26,10 @@
 			<li class="nav-item">
 				<a class="btn btn-outline-dark" href="?c=connexion">Connexion</a>
 			</li>
+			<li class="nav-item">
+				<a class="btn btn-outline-dark" href="?c=post">Création de posts</a>
+			</li>
+
 		</ul>
 	</nav>
 	<div class="container w-75 m-auto">

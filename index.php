@@ -31,6 +31,10 @@ switch ($route) {
 		$userController->verify_connection($pdo);
 		break;
 
+	case 'post':
+		require_once(__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'PostsController.php');
+		break;
+
 	default:
 		echo "Erreur : route non définie.";
 		break;
