@@ -39,6 +39,15 @@ switch ($route) {
 		}
 		break;
 
+	case 'ajout_commentaire':
+		if (isset($_SESSION['id'])) {
+			$commentsController = new CommentsController($pdo);
+			$commentsController->ajouter_commentaire();
+		} else {
+			echo json_encode(['status' => 'error', 'message' => 'Vous devez être connecté pour commenter.']);
+		}
+		break;
+
 	default:
 		echo "Erreur : route non définie.";
 		break;

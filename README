@@ -1,0 +1,7 @@
+Ce projet fonctionne de la manière suivante :
+On arrive sur la page au début, l'utilisateur doit en premier lieu s'inscrire si il veut voir les postes.
+Une fois les informations validées, l'utilisateur peut se connecter et voir les postes et commentaires.
+Il doit peut ensuite créer un poste (on affiche dans le header connecter et s'inscrire si il n'est pas connecté).
+Une fois connecté on enlève inscription et connexion et on met un lien vers les postes et la création de ces derniers.
+La base pour l'ajout des commentaires et la modification des postes est présente dans le code mais n'est pas fonctionnel.
+
