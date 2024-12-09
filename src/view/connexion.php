@@ -1,4 +1,4 @@
-<form action="index.php?action=login" method="post">
+<form action="index.php?c=connecter" method="post">
     <label for="email">Email :</label>
     <input type="email" name="email" id="email" required>
 
