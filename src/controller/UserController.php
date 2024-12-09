@@ -24,10 +24,12 @@ class UserController
 
 		/** @var PDO $pdo **/
 
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
 		$requete = $pdo->prepare('INSERT INTO users (nom, email, password, date_inscription) VALUES (:nom, :email, :password, NOW())');
 		$requete->bindParam(':nom', $nom);
 		$requete->bindParam(':email', $email);
-		$requete->bindParam(':password', password_hash($password, PASSWORD_DEFAULT));
+		$requete->bindParam(':password', $hashedPassword);
 
 		$ajoutOk = $requete->execute();
 
