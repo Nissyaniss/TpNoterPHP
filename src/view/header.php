@@ -27,7 +27,7 @@
 				<a class="btn btn-outline-dark" href="?c=connexion">Connexion</a>
 			</li>
 			<?php
-			if (isset($_SESSION['utilisateur_id'])) { ?>
+			if (isset($_SESSION['id'])) { ?>
 				<li class="nav-item">
 					<a class="btn btn-outline-dark" href="?c=post">Création de posts</a>
 				</li>

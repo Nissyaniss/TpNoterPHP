@@ -33,7 +33,7 @@ switch ($route) {
 		break;
 
 	case 'post':
-		if (isset($_SESSION['utilisateur_id'])) {
+		if (isset($_SESSION['id'])) {
 			$postController = new PostsController();
 			$postController->publier_post();
 		}
